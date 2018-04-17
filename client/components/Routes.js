@@ -4,7 +4,7 @@ import {AuthRoute, Login, Signup} from './auth'
 import Welcome from './Welcome'
 import Home from './Home'
 import NoMatch from './NoMatch'
-import Products from './Products'
+import {Products} from './products'
 
 const Routes = () => (
   <div className='fill-xy center-xy column'>
