@@ -35,3 +35,7 @@ nav a:first-child:hover {
   width: 40px;
   border-radius: 50%;
 }
+
+.products-container {
+  border: #753ebd
+}
