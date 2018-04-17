@@ -37,5 +37,42 @@ nav a:first-child:hover {
 }
 
 .products-container {
-  border: #753ebd
+  width: 100vw;
+  height: 100vh;
+  display: flex;
 }
+
+.mini-product-container {
+  padding: 0.5em;
+  width: 33%;
+  border: 1px solid blue;
+}
+.test-border-dot {
+  border: 5px solid black;
+}
+
+.mini-product-top-row {
+  display: flex;
+}
+
+.mini-product-container-image img {
+
+  width: 100px;
+  height: 100px;
+}
+
+.mini-product-container-name-price {
+  display: flex;
+  padding: 0.5em;
+}
+
+#mini-product-name, #mini-product-price {
+  margin-top: 0;
+  padding: 0.5em;
+}
+
+/* #products-container-search-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+} */
