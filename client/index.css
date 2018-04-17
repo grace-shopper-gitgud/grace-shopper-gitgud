@@ -47,8 +47,14 @@ nav a:first-child:hover {
   width: 33%;
   border: 1px solid blue;
 }
+
+.products-container-search-bar {
+  width: 25%;
+}
+
 .test-border-dot {
   border: 5px solid black;
+  width: 75%;
 }
 
 .mini-product-top-row {
