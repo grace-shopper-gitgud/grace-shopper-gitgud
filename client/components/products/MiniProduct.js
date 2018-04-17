@@ -1,13 +1,12 @@
 import React from 'react'
 
-const MiniProduct = () => {
+const MiniProduct = (props) => {
   return (
-    <div className='products-container'>
-      <div className='products-container-search-bar'>
-        <h1>Search</h1>
+    <div className='mini-product-container'>
+      <div className='mini-product-container-image'>
+      {/* <img src={} alt="test" /> */} 
       </div>
-      <div className='products-container-list'>
-        
+      <div className="mini-product-container-info">
       </div>
     </div>
   );
