@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {me} from '../store'
+import {fetchProducts} from '../store/products'
 import Main from './Main'
 
 // LoadInitialData: this sits on top of our `Main` component and fetches
@@ -18,9 +19,11 @@ class LoadInitialData extends Component {
   }
 
   async componentDidMount () {
+    console.log(this.props.fetchProducts);
     try {
       await this.props.load()
       this.setState({loaded: true})
+      this.props.fetchProducts();
     } catch (error) {
       this.setState({error: true})
     }
@@ -42,7 +45,8 @@ const mapDispatch = (dispatch) => {
     // to fetch our initial data.
     load: async () => {
       await dispatch(me())
-    }
+    },
+    fetchProducts: () => dispatch(fetchProducts())
   }
 }
 

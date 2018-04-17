@@ -3,6 +3,7 @@ import Routes from './Routes'
 import Navbar from './Navbar'
 
 const Main = () => {
+
   return (
     <div id='main' className='fill-xy column'>
       <Navbar />
