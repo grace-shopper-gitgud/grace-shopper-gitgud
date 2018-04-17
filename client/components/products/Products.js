@@ -8,7 +8,7 @@ const Products = (props) => {
       <div id='products-container-search-bar'>
         <h1>Search</h1>
       </div>
-      <div className='test-border-dot'>
+      <div className='products-list'>
         {props.products.map((product) => {
           return <MiniProduct key={product.id} product={product} />
         })}
