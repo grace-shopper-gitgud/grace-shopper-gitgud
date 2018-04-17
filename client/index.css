@@ -38,23 +38,28 @@ nav a:first-child:hover {
 
 .products-container {
   width: 100vw;
-  height: 100vh;
   display: flex;
 }
 
 .mini-product-container {
   padding: 0.5em;
-  width: 33%;
+  margin: 5px;
+  width: 250px;
   border: 1px solid blue;
+  border-radius: 5px;
+  box-shadow: 1px 2px 5px black;
+  display: flex;
 }
 
 .products-container-search-bar {
   width: 25%;
 }
 
-.test-border-dot {
-  border: 5px solid black;
-  width: 75%;
+.products-list {
+  width: 100vw;
+  display: flex;
+  flex-grow: 4;
+  flex-wrap: wrap;
 }
 
 .mini-product-top-row {
@@ -62,18 +67,11 @@ nav a:first-child:hover {
 }
 
 .mini-product-container-image img {
-
   width: 100px;
   height: 100px;
 }
 
 .mini-product-container-name-price {
-  display: flex;
-  padding: 0.5em;
-}
-
-#mini-product-name, #mini-product-price {
-  margin-top: 0;
   padding: 0.5em;
 }
 
