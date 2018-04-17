@@ -1,13 +1,14 @@
 import React from 'react'
+import MiniProduct from './MiniProduct';
 
 export const Products = () => {
   return (
     <div className='products-container'>
-      <div className='products-container-search-bar'>
+      <div id='products-container-search-bar'>
         <h1>Search</h1>
       </div>
       <div className='test-border-dot'>
-        <p>test</p>
+        <MiniProduct />
       </div>
     </div>
   );
