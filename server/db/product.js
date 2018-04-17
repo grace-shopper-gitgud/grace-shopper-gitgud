@@ -11,7 +11,7 @@ const Product = db.define('product', {
     },
     description: {
         type: Sequelize.TEXT,
-        allowNull: false
+        allowNull: false,
     },
     imageURL: {
         type: Sequelize.STRING,
@@ -22,11 +22,13 @@ const Product = db.define('product', {
     },
     price: {
         type: Sequelize.FLOAT,
-        allowNull: false
+        allowNull: false,
+        defaultValue: 50.0
     },
     quantity: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        defaultValue: 10
     }
 })
 
