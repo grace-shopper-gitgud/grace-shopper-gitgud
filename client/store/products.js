@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 // ACTION TYPES
-const GOT_PRODUCTS = 'GET_PRODUCTS';
+const GOT_PRODUCTS = 'GOT_PRODUCTS';
 const REMOVE_PRODUCT = 'REMOVE_PRODUCT';
 
 // INITIAL STATE
