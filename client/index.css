@@ -36,6 +36,10 @@ nav a:first-child:hover {
   border-radius: 50%;
 }
 
-.products-container {
-  border: #753ebd
+.products-container-list {
+
+}
+
+.test-border-dot {
+  border: 5px solid black;
 }
