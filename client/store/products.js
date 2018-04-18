@@ -1,4 +1,3 @@
-const axios = require('axios');
 
 // ACTION TYPES
 const GOT_PRODUCTS = 'GOT_PRODUCTS';
@@ -12,7 +11,7 @@ const gotProducts = products => ({ type: GOT_PRODUCTS, products });
 
 // THUNK CREATORS
 export const fetchProducts = () => {
-  return (dispatch) => {
+  return (dispatch, _, {axios}) => {
     axios.get('/api/products')
       .then(res => res.data)
       .then(products => dispatch(gotProducts(products)))
