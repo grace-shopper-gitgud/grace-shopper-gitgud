@@ -5,10 +5,10 @@ import {connect} from 'react-redux'
 const Products = (props) => {
   return (
     <div className='products-container'>
-      <div id='products-container-search-bar'>
+      <div className='products-container-search-bar bgcolor-darkslateblue'>
         <h1>Search</h1>
       </div>
-      <div className='test-border-dot'>
+      <div className='products-list'>
         {props.products.map((product) => {
           return <MiniProduct key={product.id} product={product} />
         })}

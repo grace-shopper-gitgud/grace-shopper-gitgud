@@ -1,0 +1,159 @@
+/* APP DEFAULTS */
+
+#app {
+  height: 100%;
+  width: 100vw;
+  margin: 0;
+  background-color: #121a28;
+  color: #8c93b3
+}
+
+/* NAV BAR */
+
+.nav {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav a {
+  margin: 0 1em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  font-family: "unispace";
+}
+
+a {
+  text-decoration: none;
+  color: #8c93b3;
+}
+
+a:hover {
+  border-bottom: 1px solid;
+}
+
+.nav a:first-child:hover {
+  border: none;
+}
+
+#logo {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+#cart {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-right: 3em;
+}
+
+/* FORM */
+
+form {
+  min-width: 50%;
+  max-width: 50%;
+}
+
+/* MAIN CONTAINER */
+
+.products-container {
+  width: 100vw;
+  padding: 0;
+  display: flex;
+  align-content: space-between;
+}
+
+/* PRODUCTS GALLERY */
+
+.products-list {
+  width: 100vw;
+  margin: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.mini-product-container {
+  margin: 5px;
+  /* border: 1px solid blue;
+  border-radius: 5px; */
+  box-shadow: 0px 0px 5px black;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 10%;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+}
+
+.mini-product-container-image img {
+  width: 250px;
+}
+
+.mini-product-info {
+  margin: auto;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+/* Hide price unless hovering */
+.mini-product-price {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  border-radius: 3px;
+  padding: 1em;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s, opacity 0.5s;
+}
+
+.mini-product-container:hover {
+  box-shadow:inset 0px 0px 0px 1px lightgrey;
+  background-color: #475671;
+  transition: 0.5s;
+}
+
+.mini-product-container:hover .mini-product-price {
+  visibility: visible;
+  opacity: 0.75;
+}
+
+/* SIDE BAR */
+
+.products-container-search-bar {
+  width: 20%;
+  margin-left: 0;
+}
+
+/* CART */
+
+
+/* BACKGROUND COLORS */
+.bgcolor-lightslateblue {
+  background-color: #8c93b3;
+}
+.bgcolor-slateblue {
+  background-color: #475671;
+}
+.bgcolor-darkslateblue {
+  background-color: #252e3e
+}
+.bgcolor-darkerslateblue {
+  background-color: #121a28;
+}
+.bgcolor-darkestslateblue {
+  background-color: #050911;
+}
+.bgcolor-buymegreen {
+  background-color: #1c964f;
+}
+
+

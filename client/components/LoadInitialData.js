@@ -19,7 +19,6 @@ class LoadInitialData extends Component {
   }
 
   async componentDidMount () {
-    console.log(this.props.fetchProducts);
     try {
       await this.props.load()
       this.setState({loaded: true})

@@ -15,7 +15,7 @@ const Product = db.define('product', {
     },
     imageURL: {
         type: Sequelize.STRING,
-        defaultValue: 'https://www.pexels.com/photo/photo-of-person-typing-on-computer-keyboard-735911/',
+        defaultValue: 'https://images.pexels.com/photos/735911/pexels-photo-735911.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260',
         validate: {
             isUrl: true
         }
