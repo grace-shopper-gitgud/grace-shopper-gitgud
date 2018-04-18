@@ -12,7 +12,6 @@ const gotProducts = products => ({ type: GOT_PRODUCTS, products });
 
 // THUNK CREATORS
 export const fetchProducts = () => {
-  console.log('got here');
   return (dispatch) => {
     axios.get('/api/products')
       .then(res => res.data)
