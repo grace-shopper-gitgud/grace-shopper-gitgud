@@ -81,8 +81,6 @@ form {
 
 .mini-product-container {
   margin: 5px;
-  /* border: 1px solid blue;
-  border-radius: 5px; */
   box-shadow: 0px 0px 5px black;
   display: flex;
   flex-direction: column;
@@ -131,6 +129,45 @@ form {
 .products-container-search-bar {
   width: 20%;
   margin-left: 0;
+}
+
+/* SINGLE PRODUCT VIEW */
+
+.single-product-meta {
+  display: flex;
+  margin: 2em 0;
+}
+
+.lrg-img {
+  width: 800px;
+  height: 600px;
+}
+
+.single-product-info {
+  margin-left: 2em;
+}
+
+.single-product-desc {
+  display: flex;
+  flex-direction: column;
+}
+
+.review {
+  border: 1px solid black;
+  padding: 2em;
+}
+
+.add-to-cart {
+  padding: 2em;
+}
+
+.back-button {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: lightgrey;
+  opacity: 0.75;
+  font-size: 3em;
 }
 
 /* CART */
