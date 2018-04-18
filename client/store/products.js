@@ -15,7 +15,7 @@ export const fetchProducts = () => {
     axios.get('/api/products')
       .then(res => res.data)
       .then(products => dispatch(gotProducts(products)))
-      .catch(err => next(err));
+      .catch(console.error.bind(console));
   }
 }
 
