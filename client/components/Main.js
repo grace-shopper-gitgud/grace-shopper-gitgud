@@ -5,7 +5,7 @@ import Navbar from './Navbar'
 const Main = () => {
 
   return (
-    <div id='main' className='fill-xy column'>
+    <div id='main' className='bgcolor-darkerslateblue'>
       <Navbar />
       <Routes />
     </div>

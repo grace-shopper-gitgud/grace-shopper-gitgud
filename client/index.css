@@ -1,15 +1,23 @@
 #app {
   height: 100%;
-  width: 100%;
+  width: 100vw;
   margin: 0;
 }
 
-nav {
+.nav {
   height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-nav a {
+.nav a {
   margin: 0 1em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
 }
 
 form {
@@ -19,14 +27,14 @@ form {
 
 a {
   text-decoration: none;
-  color: #753ebd;
+  color: #8c93b3;
 }
 
 a:hover {
   border-bottom: 1px solid;
 }
 
-nav a:first-child:hover {
+.nav a:first-child:hover {
   border: none;
 }
 
@@ -34,6 +42,13 @@ nav a:first-child:hover {
   height: 40px;
   width: 40px;
   border-radius: 50%;
+}
+
+#cart {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-right: 3em;
 }
 
 .products-container {
@@ -80,3 +95,22 @@ nav a:first-child:hover {
   top: 0;
   left: 0;
 } */
+
+/* BACKGROUND COLORS */
+.bgcolor-lightslateblue {
+  background-color: #8c93b3;
+}
+.bgcolor-slateblue {
+  background-color: #475671;
+}
+.bgcolor-darkslateblue {
+  background-color: #252e3e
+}
+.bgcolor-darkerslateblue {
+  background-color: #121a28;
+}
+.bgcolor-darkestslateblue {
+  background-color: #050911;
+}
+
+
