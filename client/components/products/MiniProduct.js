@@ -9,7 +9,7 @@ const MiniProduct = (props) => {
       </div>
       <div className="mini-product-info">
         <h3 id="mini-product-name">{title}</h3>
-        <p className="mini-product-price bgcolor-buymegreen">{`$${price}`}</p>
+        <p className="mini-product-price bgcolor-darkestslateblue">{`$${price}`}</p>
       </div>
     </div>
   );

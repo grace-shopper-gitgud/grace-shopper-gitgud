@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 const Products = (props) => {
   return (
     <div className='products-container'>
-      <div id='products-container-search-bar'>
+      <div className='products-container-search-bar bgcolor-darkslateblue'>
         <h1>Search</h1>
       </div>
       <div className='products-list'>
