@@ -8,7 +8,8 @@ module.exports = router
 router.use(session({
   secret: process.env.SESSION_SECRET || 'This is not a very secure secret...',
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  cart: []
 }))
 
 // consumes 'req.session' so that passport can know what's on the session
