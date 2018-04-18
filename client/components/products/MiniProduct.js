@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import history from '../../history';
 
 const MiniProduct = (props) => {
-  const { title, description, price, imageURL } = props.product;
+  const { id, title, description, price, imageURL } = props.product;
   return (
-    <div className='mini-product-container'>
+    <div className='mini-product-container' onClick={() => history.push(`/products/${id}`)}>
       <div className='mini-product-container-image'>
         <img src={imageURL} alt="test" />
       </div>
