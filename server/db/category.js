@@ -6,5 +6,5 @@ const Category = db.define('category', {
         type: Sequelize.STRING
     }
 })
-
+// add validation!
 module.exports = Category

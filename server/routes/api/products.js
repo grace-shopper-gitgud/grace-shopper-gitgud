@@ -10,13 +10,13 @@ router.get('/', async (req, res, next) => {
       req.session.cart = []
     }
     const products = await Product.findAll()
-    console.log('sessionlog', req.session.cart)
     res.json(products)
   } catch (err) {
     next(err)
   }
 });
 
+// check if product exists
 router.get('/:productId', async (req, res, next) => {
   try {
     const product = await Product.findById(req.params.productId);

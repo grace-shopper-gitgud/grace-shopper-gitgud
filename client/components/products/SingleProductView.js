@@ -1,12 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const mapStateToProps = (state, ownProps) => {
-  const id = ownProps.match.params.productId;
-  return {
-    product: state.products.find(product => product.id === +id)
-  }
-}
+
 
 export const SingleProductView = (props) => {
   const { product } = props;
@@ -42,6 +37,13 @@ export const SingleProductView = (props) => {
       </div>
     </div>
   )
+}
+
+const mapStateToProps = (state, ownProps) => {
+  const id = ownProps.match.params.productId;
+  return {
+    product: state.products.find(product => product.id === +id)
+  }
 }
 
 export default connect(mapStateToProps)(SingleProductView);
