@@ -8,7 +8,7 @@ router.put('/', (req, res, next) => {
       req.session.cart = []
     }
     req.session.cart.push(req.body);
-    res.json(req.session.cart)
+    console.log(req.session.cart);
   } catch (err) {
     next(err)
   }

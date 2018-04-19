@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import {addProducts} from '../../store';
 
 
 
 export const SingleProductView = (props) => {
-  const { product } = props;
+  const { product, addProducts } = props;
   return (
     <div className='single-product-view'>
       <div className='back'>
@@ -19,7 +20,7 @@ export const SingleProductView = (props) => {
           <h2>${product.price}</h2>
           {/* placeholder buttons */}
           <div className='buttons'>
-            <button className='add-to-cart bgcolor-buymegreen'>Add to cart</button>
+            <button onClick={() => addProducts(product)} className='add-to-cart bgcolor-buymegreen'>Add to cart</button>
           </div>
         </div>
       </div>
@@ -46,4 +47,10 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-export default connect(mapStateToProps)(SingleProductView);
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    addProducts: (product) => addProducts(product)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SingleProductView);

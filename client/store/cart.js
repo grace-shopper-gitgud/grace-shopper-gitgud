@@ -17,7 +17,9 @@ const removeFromCart = product => ({
 
 // THUNK CREATORS
 export const addProducts = (product) => {
+    console.log("In Add product")
     return (dispatch, _, {axios}) => {
+        console.log("BEFORE AXIOS")
        axios.put('/api/cart', product)
        .then(() => dispatch(addToCart(product)))
        .catch(console.error.bind(console))
