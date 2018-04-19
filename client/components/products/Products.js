@@ -3,24 +3,34 @@ import MiniProduct from './MiniProduct';
 import {connect} from 'react-redux'
 import SearchBar from './SearchBar'
 
-const Products = (props) => {
-  return (
+class Products extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render () {
+    return (
     <div className='products-container'>
       <div className='products-container-search-bar bgcolor-darkslateblue'>
         <SearchBar />
       </div>
       <div className='products-list'>
-        {props.products.map((product) => {
+        {this.props.searchTerm ? this.props.products.filter(product => {
+          return product.title.includes(this.props.searchTerm);
+        }).map((product) => {
+          return <MiniProduct key={product.id} product={product} />
+        }) : this.props.products.map((product) => {
           return <MiniProduct key={product.id} product={product} />
         })}
       </div>
     </div>
-  );
-};
+  )}
+}
 
 const mapStateToProps = (state) => {
   return {
-    products: state.products
+    products: state.products,
+    searchTerm: state.searchTerm
   };
 };
 
