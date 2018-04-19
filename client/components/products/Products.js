@@ -11,7 +11,7 @@ class Products extends React.Component {
   render () {
     return (
     <div className='products-container'>
-      <div className='products-container-search-bar bgcolor-darkslateblue'>
+      <div className='products-container-search-bar  sidebar bgcolor-darkslateblue'>
         <SearchBar />
       </div>
       <div className='products-list'>

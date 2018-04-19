@@ -14,7 +14,7 @@ const Navbar = () => (
     </span>
     <span className='cart-icon'>
       {/* Placeholder cart image, to turn into a button! */}
-      <img id="cart" src="/cart-icon-lightgray.png" />
+      <Link to='/cart'><img id="cart" src="/cart-icon-lightgray.png" /></Link>
     </span>
   </nav>
 )
