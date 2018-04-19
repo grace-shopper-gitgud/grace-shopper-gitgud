@@ -2,11 +2,15 @@ const router = require('express').Router()
 
 module.exports = router;
 
+router.get('/', (req, res, next) => {
+  if (!req.session.cart) {
+    req.session.cart = []
+  }
+  res.json(req.session.cart);
+});
+
 router.put('/', (req, res, next) => {
   try {
-    if (!req.session.cart) {
-      req.session.cart = []
-    }
     req.session.cart.push(req.body);
     res.status(200).end();
   } catch (err) {

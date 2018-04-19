@@ -6,9 +6,6 @@ module.exports = router
 
 router.get('/', async (req, res, next) => {
   try {
-    if (!req.session.cart) {
-      req.session.cart = []
-    }
     const products = await Product.findAll()
     res.json(products)
   } catch (err) {

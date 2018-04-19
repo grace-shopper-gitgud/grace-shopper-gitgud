@@ -6,7 +6,7 @@ import SearchBar from './SearchBar'
 const Products = (props) => {
   return (
     <div className='products-container'>
-      <div className='products-container-search-bar bgcolor-darkslateblue'>
+      <div className='products-container-search-bar  sidebar bgcolor-darkslateblue'>
         <SearchBar />
       </div>
       <div className='products-list'>

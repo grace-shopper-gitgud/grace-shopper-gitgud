@@ -7,7 +7,9 @@ const Main = () => {
   return (
     <div id='main' className='bgcolor-darkerslateblue'>
       <Navbar />
-      <Routes />
+      <div className='main-container'>
+        <Routes />
+      </div>
     </div>
   )
 }
