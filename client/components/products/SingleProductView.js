@@ -27,13 +27,22 @@ export const SingleProductView = (props) => {
       <div className='single-product-bottom'>
         <div className='single-product-desc'>
           <h2>Description</h2>
-          <p>aklsjdhflasjudfgoaiwyugeflajhsdflakjsdhfailuwefhl;auefalisudhfalksjdfh</p>
+          <p>{product.description}</p>
         </div>
         <div className='single-product-reviews'>
           <h2>Reviews</h2>
-          <p className='review'>Best game ever 10/10</p>
-          <p className='review'>Worst game ever I want my money back</p>
-          <p className='review'>Just right</p>
+          {// rendering reviews, if no reviews then render a helpful line
+            product.reviews.length ?
+            product.reviews.map(review => {
+              return (
+              <div key={review.id} className='review'>
+                <h3>{`${review.user.email} says:`}</h3>
+                <p className='review-text'>{review.text}</p>
+              </div>
+            )
+            }) :
+            <p className='review'>No reviews yet... Be the first!</p>
+          }
         </div>
       </div>
     </div>
