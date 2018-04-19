@@ -9,8 +9,8 @@ const seed = async () => {
   const users = await Promise.all([
     User.create({email: 'cody@email.com', password: '123'}),
     User.create({email: 'grace@hopper.com', password: '123'}),
-    Review.create({text: 'this is a real review'})
   ])
+
   console.log(`seeded ${users.length} users`)
   console.log('email: ', users[0].email, ' password: 123')
   console.log('email: ', users[1].email, ' password: 123')
@@ -47,6 +47,19 @@ const seed = async () => {
 
   console.log(`seeded games`);
   console.log(`seeded successfully`);
+
+  console.log(`games length`, games.length);
+  console.log(`seeding reviews...`)
+  
+  
+  for (let i = 1; i < 100; i++) {
+    await Review.create({
+      text: "This is a seed generate review!",
+      userId: Math.ceil(Math.random() * 2),
+      productId: Math.ceil(Math.random() * games.length)
+    })
+  }
+  console.log(`seeding reviews complete!`)
 }
 
 seed()

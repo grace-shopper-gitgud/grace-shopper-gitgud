@@ -12,6 +12,12 @@ Category.belongsToMany(Product, {through: 'product-category'})
 Product.belongsToMany(Order, {through: 'product-order'})
 Order.belongsToMany(Product, {through: 'product-order'})
 
+Review.belongsTo(Product)
+Product.hasMany(Review)
+
+Review.belongsTo(User)
+User.hasMany(Review)
+
 
 module.exports = {
   db,
