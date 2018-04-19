@@ -8,7 +8,7 @@ router.put('/', (req, res, next) => {
       req.session.cart = []
     }
     req.session.cart.push(req.body);
-    console.log(req.session.cart);
+    res.status(200).end();
   } catch (err) {
     next(err)
   }
@@ -19,11 +19,11 @@ router.delete('/', (req, res, next) => {
     if (req.session.cart) {
       const index = req.session.cart.map(item => item.id).indexOf(req.body.id);
       if (index === -1) {
-        console.log("In if")
         res.status(404).send("Item not in cart!");
       } else {
         req.session.cart.splice(index, 1);
-        res.json(req.session.cart)
+        console.log(req.session.cart);
+        res.status(200).end();
       }
     }
   } catch (err) {
