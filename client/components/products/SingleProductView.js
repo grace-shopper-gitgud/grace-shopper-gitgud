@@ -49,7 +49,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    addProducts: (product) => addProducts(product)
+    addProducts: (product) => dispatch(addProducts(product))
   }
 }
 
