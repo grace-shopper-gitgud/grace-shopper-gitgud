@@ -9,7 +9,6 @@ const MiniProduct = (props) => {
         <img src={imageURL} alt="test" />
       </div>
       <div className="mini-product-info">
-        <h3 id="mini-product-name">{title}</h3>
         <p className="mini-product-price bgcolor-darkestslateblue">{`$${price}`}</p>
       </div>
     </div>
