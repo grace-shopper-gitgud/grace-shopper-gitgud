@@ -3,8 +3,13 @@ const db = require('./database')
 
 const Category = db.define('category', {
     title: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
+        validation: {
+            unique: true,
+            notEmpty: true
+        }
     }
 })
-// add validation!
+
 module.exports = Category
