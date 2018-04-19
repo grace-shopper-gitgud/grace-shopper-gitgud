@@ -37,7 +37,7 @@ export const SingleProductView = (props) => {
               return (
               <div key={review.id} className='review'>
                 <h3>{`${review.user.email} says:`}</h3>
-                <p>{review.text}</p>
+                <p className='review-text'>{review.text}</p>
               </div>
             )
             }) :
