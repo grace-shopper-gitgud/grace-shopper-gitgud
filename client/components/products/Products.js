@@ -16,7 +16,7 @@ class Products extends React.Component {
       </div>
       <div className='products-list'>
         {this.props.searchTerm ? this.props.products.filter(product => {
-          return product.title.includes(this.props.searchTerm);
+          return product.title.toLowerCase().includes(this.props.searchTerm);
         }).map((product) => {
           return <MiniProduct key={product.id} product={product} />
         }) : this.props.products.map((product) => {
