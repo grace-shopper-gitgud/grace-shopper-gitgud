@@ -1,10 +1,10 @@
 import React from 'react';
-import {addToCart, removeFromCart} from '../../store';
+import {addToCart, removeProduct} from '../../store';
 import {connect} from 'react-redux';
 import {MiniProduct} from '../products';
 
 const Cart = (props) => {
-  const { cart, subtotal } = props;
+  const { cart, subtotal, removeProduct } = props;
   const tax = (subtotal * 0.09);
   const total = (subtotal + tax);
   return (
@@ -21,7 +21,7 @@ const Cart = (props) => {
             cart.map(product => (
               <div key={product.id} className='cart-product-gallery'>
                 <MiniProduct product={product} />
-                <button className='remove-from-cart'>Remove from cart</button>
+                <button onClick={() => removeProduct(product)} className='remove-from-cart'>Remove from cart</button>
               </div>
             ))
         }
@@ -40,7 +40,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   addToCart: (product) => dispatch(addToCart(product)),
-  removeFromCart: (product) => dispatch(removeFromCart(product))
+  removeProduct: (product) => dispatch(removeProduct(product))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);

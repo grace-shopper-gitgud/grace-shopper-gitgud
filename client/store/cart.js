@@ -42,9 +42,11 @@ export const addProducts = (product) => {
 //will we be sending the entire product to be deleted or just the id?
 export const removeProduct = (product) => {
     return (dispatch, _, {axios}) => {
-        dispatch(removeFromCart(product))
-        axios.delete('/api/cart', product)
+        axios.delete(`/api/cart/${product.id}`)
         .catch(console.error.bind(console))
+        dispatch(removeFromCart(product))
+        //VVVV HACKY WAY OF NOT DELETING ALL INSTANCES IN CART
+        dispatch(fetchCart())
     }
 }
 
