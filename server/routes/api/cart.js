@@ -18,15 +18,15 @@ router.put('/', (req, res, next) => {
   }
 });
 
-router.delete('/', (req, res, next) => {
+router.delete('/:productId', (req, res, next) => {
+  const productId = +req.params.productId
   try {
     if (req.session.cart) {
-      const index = req.session.cart.map(item => item.id).indexOf(req.body.id);
+      const index = req.session.cart.map(item => item.id).indexOf(productId);
       if (index === -1) {
         res.status(404).send("Item not in cart!");
       } else {
         req.session.cart.splice(index, 1);
-        console.log(req.session.cart);
         res.status(200).end();
       }
     }
