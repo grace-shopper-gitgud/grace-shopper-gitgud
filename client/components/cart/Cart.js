@@ -16,7 +16,7 @@ const Cart = (props) => {
         <h2>Total: ${total.toFixed(2)}</h2>
         <button className='checkout bgcolor-buymegreen'>Checkout</button>
       </div>
-      <div className='cart-products'>
+      <div className='cart-products interactive-container'>
         {
             cart.map(product => (
               <div key={product.id} className='cart-product-gallery'>

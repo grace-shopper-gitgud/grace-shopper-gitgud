@@ -63,7 +63,7 @@ form {
   max-width: 50%;
 }
 
-/* MAIN CONTAINER */
+/* PAGE FORMATTING */
 
 .main-container {
   padding-top: 80px;
@@ -74,6 +74,17 @@ form {
   padding: 0;
   display: flex;
   align-content: space-between;
+}
+
+.sidebar {
+  width: 20em;
+  margin-left: 0;
+  position: fixed;
+  height: 100%;
+}
+
+.interactive-container {
+  padding-left: 20em;
 }
 
 /* PRODUCTS GALLERY */
@@ -124,13 +135,6 @@ form {
 .mini-product-container:hover .mini-product-price {
   visibility: visible;
   opacity: 0.75;
-}
-
-/* SIDE BAR */
-
-.sidebar {
-  width: 20%;
-  margin-left: 0;
 }
 
 /* SINGLE PRODUCT VIEW */
