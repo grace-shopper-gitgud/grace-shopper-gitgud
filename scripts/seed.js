@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 
 const {db, User, Product, Category} = require('../server/db')
 const gameInfo = require('./games');
@@ -10,6 +9,8 @@ const seed = async () => {
   const users = await Promise.all([
     User.create({email: 'cody@email.com', password: '123'}),
     User.create({email: 'grace@hopper.com', password: '123'}),
+    Review.create({text: 'this is a real review'}),
+    Category.create({})
   ])
   console.log(`seeded ${users.length} users`)
   console.log('email: ', users[0].email, ' password: 123')
