@@ -5,8 +5,7 @@ import Welcome from './Welcome'
 import Home from './Home'
 import NoMatch from './NoMatch'
 import {Products, SingleProductView} from './products'
-import {Cart} from './cart'
-//import SingleProductView from './products/SingleProductView'
+import {Cart, Checkout} from './cart'
 
 const Routes = () => (
   <div className='fill-xy center-xy column'>
@@ -18,6 +17,7 @@ const Routes = () => (
       <Route exact path='/products' component={Products} />
       <Route path='/products/:productId' component={SingleProductView} />
       <Route path='/cart' component={Cart} />
+      <Route path='/checkout' component={Checkout} />
       <Route component={NoMatch} />
     </Switch>
   </div>
