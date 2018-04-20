@@ -19,7 +19,7 @@ export const getOrders = (userId) => {
   }
 }
 
-export const createOrder = order => {
+export const createOrder = (order, userId) => {
   return (dispatch, _, {axios}) => {
     axios.post(`api/orders/${userId}`)
       .then(res => res.data)
