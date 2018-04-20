@@ -138,6 +138,9 @@ form {
 }
 
 /* SINGLE PRODUCT VIEW */
+.single-product-view {
+  margin: 2em 25em;
+}
 
 .single-product-meta {
   display: flex;
@@ -145,7 +148,7 @@ form {
 }
 
 .lrg-img {
-  width: 800px;
+  width: 500px;
   height: 600px;
 }
 
