@@ -8,9 +8,6 @@ export const SingleProductView = (props) => {
   const { product, addProducts } = props;
   return (
     <div className='single-product-view'>
-      <div className='back'>
-        <button className='back-button'>{'<='}</button>
-      </div>
       <div className='single-product-meta'>
         <div className='single-product-image-large'>
           <img className='lrg-img' src={`${product.imageURL}`} />
@@ -18,7 +15,6 @@ export const SingleProductView = (props) => {
         <div className='single-product-info'>
           <h1>{product.title}</h1>
           <h2>${product.price}</h2>
-          {/* placeholder buttons */}
           <div className='buttons'>
             <button onClick={() => addProducts(product)} className='add-to-cart bgcolor-buymegreen'>Add to cart</button>
           </div>
