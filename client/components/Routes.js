@@ -6,12 +6,15 @@ import Home from './Home'
 import NoMatch from './NoMatch'
 import {Products, SingleProductView} from './products'
 import {Cart, Checkout} from './cart'
+import Orders from './orders/Orders'
 
 const Routes = () => (
   <div className='fill-xy center-xy column'>
     <Switch>
       <Route exact path='/' component={Welcome} />
       <Route path='/login' component={Login} />
+      <Route path='/login' component={Login} />
+      <Route path='/orders' component={Orders} />
       <Route path='/signup' component={Signup} />
       <AuthRoute path='/home' component={Home} />
       <Route exact path='/products' component={Products} />
