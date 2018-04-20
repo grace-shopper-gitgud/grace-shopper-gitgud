@@ -12,6 +12,9 @@ Category.belongsToMany(Product, {through: 'product-category'})
 Product.belongsToMany(Order, {through: 'product-order'})
 Order.belongsToMany(Product, {through: 'product-order'})
 
+User.hasMany(Order);
+Order.belongsTo(User);
+
 Review.belongsTo(Product)
 Product.hasMany(Review)
 
