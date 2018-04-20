@@ -49,14 +49,29 @@ export const removeProduct = (product) => {
 
 //REDUCER
 export default (state = cart, action) => {
+    const {product} = action;
+    const i = state.indexOf(product);
     switch (action.type) {
         case GOT_CART:
             return action.cart;
-        case ADD_TO_CART:
-            return [...state, action.product];
-        case REMOVE_FROM_CART:
-            return state.filter(product => product.id !== action.product.id);
+        case ADD_TO_CART: {
+            if (i === -1) {
+                product.quantity = 1;
+                return [...state, product];
+            } else {
+                product.quantity = state[i].quantity + 1;
+                return [...state.slice(0, i), product, ...state.slice(i + 1)];
+            }
+        }
+        case REMOVE_FROM_CART: {
+            product.quantity = state[i].quantity - 1;
+            if (product.quantity) {
+                return [...state.slice(0, i), product, ...state.slice(i + 1)];
+            } else {
+                return [...state.slice(0, i), ...state.slice(i + 1)];
+            }
+        }
         default:
-            return state
+            return state;
     }
 }
