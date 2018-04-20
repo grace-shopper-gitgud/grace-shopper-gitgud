@@ -1,5 +1,5 @@
 
-const {db, User, Product, Category, Review} = require('../server/db')
+const {db, User, Product, Category, Review, Order} = require('../server/db')
 const gameInfo = require('./games');
 
 const seed = async () => {
@@ -48,7 +48,6 @@ const seed = async () => {
   console.log(`seeded games`);
   console.log(`seeded successfully`);
 
-  console.log(`games length`, games.length);
   console.log(`seeding reviews...`)
   
   
@@ -60,6 +59,15 @@ const seed = async () => {
     })
   }
   console.log(`seeding reviews complete!`)
+
+  console.log('seeding Orders');
+
+  await Order.create({status: 'PENDING', address: '124 FullStack dr', userId: 1})
+  await Order.create({status: 'COMPLETED', address: '124 FullStack dr', userId: 1})
+  await Order.create({status: 'PENDING', address: '124 FullStack dr', userId: 2})
+  await Order.create({status: 'COMPLETED', address: '124 FullStack dr', userId: 2})
+
+  console.log('orders seeded')
 }
 
 seed()
