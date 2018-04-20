@@ -3,6 +3,7 @@ import MiniProduct from './MiniProduct';
 import {connect} from 'react-redux'
 import SearchBar from './SearchBar'
 
+
 const Products = (props) => {
   const {products} = props;
   let render;
