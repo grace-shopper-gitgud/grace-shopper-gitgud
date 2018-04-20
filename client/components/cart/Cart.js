@@ -6,7 +6,7 @@ import OrderSummary from './OrderSummary'
 
 // move order summary to its own component
 const Cart = (props) => {
-  const { cart } = props;
+  const { cart, removeProduct } = props;
   return (
     <div className='cart-view'>
       <OrderSummary />

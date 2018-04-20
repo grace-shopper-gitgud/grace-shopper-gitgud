@@ -35,18 +35,15 @@ export const addProducts = (product) => {
     return (dispatch, _, {axios}) => {
         dispatch(addToCart(product))
         axios.put('/api/cart', product)
-        .catch(console.error.bind(console))
+            .catch(console.error.bind(console))
     }
 }
 
-//will we be sending the entire product to be deleted or just the id?
 export const removeProduct = (product) => {
-    return (dispatch, _, {axios}) => {
-        axios.delete(`/api/cart/${product.id}`)
-        .catch(console.error.bind(console))
-        dispatch(removeFromCart(product))
-        //VVVV HACKY WAY OF NOT DELETING ALL INSTANCES IN CART
-        dispatch(fetchCart())
+    return async (dispatch, _, {axios}) => {
+        await axios.delete(`/api/cart/${product.id}`)
+            .catch(console.error.bind(console));
+        dispatch(removeFromCart(product));
     }
 }
 
