@@ -22,7 +22,7 @@ const OrderSummary = (props) => {
 const mapStateToProps = (state) => ({
   subtotal: state.cart.reduce((acc, product) => {
     if (!product) return acc;
-    return acc + product.price;
+    return acc + (product.price * product.quantity);
   }, 0.00)
 });
 

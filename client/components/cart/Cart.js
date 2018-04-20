@@ -14,8 +14,15 @@ const Cart = (props) => {
         {
           cart.map(product => (
             <div key={product.id} className='cart-product-gallery'>
-              <MiniProduct product={product} />
-              <button onClick={() => removeProduct(product)} className='remove-from-cart'>Remove from cart</button>
+              <span>
+                <MiniProduct product={product} />
+              </span>
+              <span>
+                <p>Quantity: {product.quantity}</p>
+              </span>
+              <span>
+                <button onClick={() => removeProduct(product)} className='remove-from-cart'>Remove from cart</button>
+              </span>
             </div>
           ))
         }
