@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Products } from './Products';
 import { searchButtonPressed, searchIsPressed } from '../../store/searchTerm';
-
+// here is a test comment
 
 class SearchBar extends React.Component {
   constructor() {
