@@ -1,11 +1,13 @@
 // ACTION TYPE
 const GOT_ORDERS = 'GOT_ORDERS';
+const CREATED_ORDER = 'CREATED_ORDER'
 
 // INITIAL STATE
 const orders = [];
 
 // ACTION CREATORS
 const gotOrders = orders => ({type: GOT_ORDERS, orders});
+const createdOrder = order => ({type: CREATED_ORDER, order})
 
 // THUNK CREATORS
 export const getOrders = (userId) => {
@@ -13,6 +15,15 @@ export const getOrders = (userId) => {
     axios.get(`/api/orders/${userId}`)
       .then(res => res.data)
       .then(orders => dispatch(gotOrders(orders)))
+      .catch(console.error.bind(console));
+  }
+}
+
+export const createOrder = order => {
+  return (dispatch, _, {axios}) => {
+    axios.post(`api/orders/${userId}`)
+      .then(res => res.data)
+      .then(order => dispatch(createdOrder(order)))
       .catch(console.error.bind(console));
   }
 }
