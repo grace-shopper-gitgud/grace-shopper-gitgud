@@ -33,6 +33,8 @@ export default (state = orders, action) => {
   switch (action.type) {
     case GOT_ORDERS:
       return action.orders;
+    case CREATED_ORDER:
+      return [...state, action.order]
     default:
       return state;
   }
