@@ -8,9 +8,9 @@ const orders = [];
 const gotOrders = orders => ({type: GOT_ORDERS, orders});
 
 // THUNK CREATORS
-export const getOrders = () => {
+export const getOrders = (userId) => {
   return (dispatch, _, {axios}) => {
-    axios.get('/api/orders')
+    axios.get(`/api/orders/${userId}`)
       .then(res => res.data)
       .then(orders => dispatch(gotOrders(orders)))
       .catch(console.error.bind(console));
