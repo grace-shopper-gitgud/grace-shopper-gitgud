@@ -2,28 +2,22 @@ import React from 'react';
 import {addToCart, removeProduct} from '../../store';
 import {connect} from 'react-redux';
 import {MiniProduct} from '../products';
+import OrderSummary from './OrderSummary'
 
+// move order summary to its own component
 const Cart = (props) => {
-  const { cart, subtotal, removeProduct } = props;
-  const tax = (subtotal * 0.09);
-  const total = (subtotal + tax);
+  const { cart } = props;
   return (
     <div className='cart-view'>
-      <div className='cart-order-summary sidebar bgcolor-darkslateblue'>
-        <h1>Order Summary</h1>
-        <h2>Subtotal: ${subtotal.toFixed(2)}</h2>
-        <h2>Tax: ${tax.toFixed(2)}</h2>
-        <h2>Total: ${total.toFixed(2)}</h2>
-        <button className='checkout bgcolor-buymegreen'>Checkout</button>
-      </div>
+      <OrderSummary />
       <div className='cart-products interactive-container'>
         {
-            cart.map(product => (
-              <div key={product.id} className='cart-product-gallery'>
-                <MiniProduct product={product} />
-                <button onClick={() => removeProduct(product)} className='remove-from-cart'>Remove from cart</button>
-              </div>
-            ))
+          cart.map(product => (
+            <div key={product.id} className='cart-product-gallery'>
+              <MiniProduct product={product} />
+              <button onClick={() => removeProduct(product)} className='remove-from-cart'>Remove from cart</button>
+            </div>
+          ))
         }
       </div>
     </div>
@@ -31,11 +25,7 @@ const Cart = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-  cart: state.cart,
-  subtotal: state.cart.reduce((acc, product) => {
-    if (!product) return acc;
-    return acc + product.price;
-  }, 0.00)
+  cart: state.cart
 });
 
 const mapDispatchToProps = (dispatch) => ({
