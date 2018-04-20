@@ -9,7 +9,8 @@ const Navbar = () => (
       <Link to='/login'>Login</Link>
       <Link to='/signup'>Signup</Link>
       <AuthLink to='/home'>Home</AuthLink>
-      <Link to='/products'>Products</Link>
+      <Link to='/products'>Products</Link> 
+      <AuthLink to='orders'>Orders</AuthLink>
       <AuthLink to='/'><Logout /></AuthLink>
     </span>
     <span className='cart-icon'>
