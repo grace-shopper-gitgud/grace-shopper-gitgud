@@ -31,7 +31,7 @@ const seed = async () => {
     Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam.`;
 
     let price = (Math.random() * 50).toFixed(2);
-    let quantity = Math.round(Math.random() * 100);
+    let inventory = Math.round(Math.random() * 100);
     let imageURL = `https://images.igdb.com/igdb/image/upload/t_cover_big/${game.imageUrl.slice(44)}`;
 
     return Product.create({
@@ -39,7 +39,7 @@ const seed = async () => {
       description: game.description,
       imageURL,
       price,
-      quantity
+      inventory
     });
   });
 
@@ -49,8 +49,8 @@ const seed = async () => {
   console.log(`seeded successfully`);
 
   console.log(`seeding reviews...`)
-  
-  
+
+
   for (let i = 1; i < 100; i++) {
     await Review.create({
       text: "This is a seed generated review!",
