@@ -10,13 +10,6 @@ export const categorySelected = category => ({
   category
 });
 
-//THUNK CREATORS
-export const categoryIsSelected = (category) => {
-  return (dispatch) => {
-    dispatch(categorySelected(category))
-  }
-}
-
 export default (state = selectedCategory, action) => {
   switch (action.type) {
     case CATEGORY_SELECTED:
