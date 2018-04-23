@@ -1,5 +1,5 @@
 import React from 'react';
-import {addToCart, removeProduct} from '../../store';
+import {addToCart, removeProduct} from '../../store/cart';
 import {connect} from 'react-redux';
 import {MiniProduct} from '../products';
 import OrderSummary from './OrderSummary'

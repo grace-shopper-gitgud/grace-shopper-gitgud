@@ -21,5 +21,3 @@ const store = createStore(
 )
 
 export default store;
-export * from './cart';
-export * from './products';

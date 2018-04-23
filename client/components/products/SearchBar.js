@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Products } from './Products';
-import { searchButtonPressed, searchIsPressed } from '../../store/searchTerm';
-import { categorySelected, categoryIsSelected } from '../../store/category';
+import { searchButtonPressed } from '../../store/searchTerm';
+import { categorySelected } from '../../store/category';
 // here is a test comment
 
 class SearchBar extends React.Component {
@@ -23,12 +23,12 @@ class SearchBar extends React.Component {
 
   handleSearch(event) {
     event.preventDefault();
-    this.props.searchIsPressed(this.state.searchTerm);
+    this.props.searchButtonPressed(this.state.searchTerm);
   }
 
   async handleClick(event) {
     await this.setState({selectedCategory: event.target.value})
-    this.props.categoryIsSelected(this.state.selectedCategory)
+    this.props.categorySelected(this.state.selectedCategory)
   }
 
   render () {
@@ -38,18 +38,18 @@ class SearchBar extends React.Component {
         <form>
           <div>
             <input type="text" onChange={this.handleChange} value={this.state.searchTerm} />
-            
+
             <input type="button" id="category1" name="action" onClick={this.handleClick} value="ACTION" />
-            
+
             <input type="button" id="category2" name="horror" onClick={this.handleClick} value="HORROR" />
-            
+
             <input type="button" id="category3" name="adventure" onClick={this.handleClick} value="ADVENTURE" />
-            
+
             <label> CLEAR </label>
             <input type="button" id="clear" name="clear" onClick={this.handleClick} value="" />
 
           </div>
-          
+
           <div>
             <button type="submit" onClick={this.handleSearch} >Search</button>
           </div>
@@ -57,7 +57,7 @@ class SearchBar extends React.Component {
       </div>
     </div>
     )
-  }     
+  }
 }
 
 const mapStateToProps = (state) => {
@@ -69,8 +69,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatch = (dispatch) => {
   return {
-    searchIsPressed: (searchTerm) => dispatch(searchIsPressed(searchTerm)),
-    categoryIsSelected: (selectedCategory) => dispatch(categoryIsSelected(selectedCategory))
+    searchButtonPressed: (searchTerm) => dispatch(searchButtonPressed(searchTerm)),
+    categorySelected: (selectedCategory) => dispatch(categorySelected(selectedCategory))
   }
 }
 

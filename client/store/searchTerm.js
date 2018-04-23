@@ -10,13 +10,6 @@ export const searchButtonPressed = searchTerm => ({
   searchTerm
 });
 
-//THUNK CREATORS
-export const searchIsPressed = (searchTerm) => {
-  return (dispatch) => {
-    dispatch(searchButtonPressed(searchTerm))
-  }
-}
-
 export default (state = searchTerm, action) => {
   switch (action.type) {
     case SEARCH_BUTTON_PRESSED:
