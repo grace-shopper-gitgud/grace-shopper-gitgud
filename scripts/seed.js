@@ -10,7 +10,12 @@ const seed = async () => {
     User.create({email: 'cody@email.com', password: '123'}),
     User.create({email: 'grace@hopper.com', password: '123'}),
   ])
-
+  
+  const categories = await Promise.all([
+    Category.create({title: 'ACTION'}),
+    Category.create({title: 'ADVENTURE'}),
+    Category.create({title: 'HORROR'}),
+  ])
   console.log(`seeded ${users.length} users`)
   console.log('email: ', users[0].email, ' password: 123')
   console.log('email: ', users[1].email, ' password: 123')
@@ -44,7 +49,7 @@ const seed = async () => {
   });
 
   const games = await Promise.all(gamePromises);
-
+  games.forEach(async game => await game.addCategory(Math.round(Math.random() * 3)))
   console.log(`seeded games`);
   console.log(`seeded successfully`);
 
