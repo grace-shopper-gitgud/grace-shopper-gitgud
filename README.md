@@ -4,10 +4,13 @@
 
 ## TESTING:
 
-Hannah: Front and backend cart
-Tyler: Front and backend orders
-Matt: Front and backend products
-Tim: Everything else
+Hannah: Front and backend cart\n
+
+Tyler: Front and backend orders\n
+
+Matt: Front and backend products\n
+
+Tim: Everything else\n
 
 ## Setup
 
