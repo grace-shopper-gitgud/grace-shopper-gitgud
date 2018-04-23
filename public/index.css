@@ -232,4 +232,46 @@ form {
   background-color: #1c964f;
 }
 
+/* Past orders view */
+.order-product-list {
+  width: 80vw;
+  margin: 2em;
+  padding: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid black;
+  box-shadow: 0px 0px 5px black;
+}
 
+.order-product-container {
+  margin: 5px;
+  padding: 2.5px;
+  height: 100px;
+  box-shadow: 0px 0px 5px black;
+  display: flex;
+  flex-direction: row;
+  flex-basis: 10%;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.order-header {
+  margin: 5px;
+  padding: 5px;
+  box-shadow: 0px 0px 5px black;
+}
+
+.order-product-info {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+}
+
+.order-product-image img {
+  width: 66px;
+  height: 100px;
+  padding: 2px;
+}
