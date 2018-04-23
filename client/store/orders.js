@@ -21,7 +21,7 @@ export const getOrders = userId => {
 
 export const createOrder = (order, userId) => {
   return (dispatch, _, {axios}) => {
-    axios.post(`api/orders/${userId}`)
+    axios.post(`/api/orders/${userId.toString()}`, order)
       .then(res => res.data)
       .then(order => dispatch(createdOrder(order)))
       .catch(console.error.bind(console));

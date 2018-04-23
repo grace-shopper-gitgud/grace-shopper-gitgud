@@ -28,9 +28,14 @@ const Products = (props) => {
 }
 
 const mapStateToProps = (state) => {
-  let {searchTerm, products} = state;
+  let {searchTerm, products, selectedCategory} = state;
   if (searchTerm) {
+    console.log("got to searchTerm");
     products = products.filter(product => product.title.toLowerCase().includes(searchTerm.toLowerCase()));
+  }
+  if (selectedCategory) {
+    products = products.filter(product => product.categories[0] && product.categories[0].title === selectedCategory)
+    
   }
   return {
     products,
