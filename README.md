@@ -2,6 +2,13 @@
 
 *A shop that's closed is safe; but that's not what shops are for.*
 
+## TESTING:
+
+Hannah: Front and backend cart
+Tyler: Front and backend orders
+Matt: Front and backend products
+Tim: Everything else
+
 ## Setup
 
 To use this boilerplate, you'll need to take the following steps:
