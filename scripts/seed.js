@@ -62,12 +62,15 @@ const seed = async () => {
 
   console.log('seeding Orders');
 
-  await Order.create({status: 'PENDING', email: 'abc@email.com', street: '124 Fullstack dr', state: 'NY', zipcode: '01140', total: 45, userId: 1})
-  await Order.create({status: 'COMPLETED', email: 'abc@email.com', street: '124 Fullstack dr', state: 'NY', zipcode: '01140', total: 32.12, userId: 1})
+  const firstOrder = await Order.create({status: 'PENDING', email: 'abc@email.com', street: '124 Fullstack dr', state: 'NY', zipcode: '01140', total: 45, userId: 1})
+  const secondOrder = await Order.create({status: 'COMPLETED', email: 'abc@email.com', street: '124 Fullstack dr', state: 'NY', zipcode: '01140', total: 32.12, userId: 1})
   await Order.create({status: 'PENDING', email: 'abc@email.com', street: '124 Fullstack dr', state: 'NY', zipcode: '01140', total: 46.88, userId: 2})
   await Order.create({status: 'COMPLETED', email: 'abc@email.com', street: '124 Fullstack dr', state: 'NY', zipcode: '01140', total: 18.99, userId: 2})
 
   console.log('orders seeded')
+
+  await firstOrder.addProducts([games[0], games[3], games[67], games[25]])
+  await secondOrder.addProducts([games[21], games[45], games[88], games[79]])
 }
 
 seed()
