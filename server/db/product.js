@@ -29,7 +29,11 @@ const Product = db.define('product', {
         type: Sequelize.INTEGER,
         allowNull: false,
         defaultValue: 10
+    },
+    quantity: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0
     }
-})
+});
 
 module.exports = Product

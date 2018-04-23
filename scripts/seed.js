@@ -10,7 +10,12 @@ const seed = async () => {
     User.create({email: 'cody@email.com', password: '123'}),
     User.create({email: 'grace@hopper.com', password: '123'}),
   ])
-
+  
+  const categories = await Promise.all([
+    Category.create({title: 'ACTION'}),
+    Category.create({title: 'ADVENTURE'}),
+    Category.create({title: 'HORROR'}),
+  ])
   console.log(`seeded ${users.length} users`)
   console.log('email: ', users[0].email, ' password: 123')
   console.log('email: ', users[1].email, ' password: 123')
@@ -31,7 +36,7 @@ const seed = async () => {
     Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam.`;
 
     let price = (Math.random() * 50).toFixed(2);
-    let quantity = Math.round(Math.random() * 100);
+    let inventory = Math.round(Math.random() * 100);
     let imageURL = `https://images.igdb.com/igdb/image/upload/t_cover_big/${game.imageUrl.slice(44)}`;
 
     return Product.create({
@@ -39,18 +44,18 @@ const seed = async () => {
       description: game.description,
       imageURL,
       price,
-      quantity
+      inventory
     });
   });
 
   const games = await Promise.all(gamePromises);
-
+  games.forEach(async game => await game.addCategory(Math.round(Math.random() * 3)))
   console.log(`seeded games`);
   console.log(`seeded successfully`);
 
   console.log(`seeding reviews...`)
-  
-  
+
+
   for (let i = 1; i < 100; i++) {
     await Review.create({
       text: "This is a seed generated review!",
@@ -65,7 +70,7 @@ const seed = async () => {
   const firstOrder = await Order.create({status: 'PENDING', email: 'abc@email.com', street: '124 Fullstack dr', state: 'NY', zipcode: '01140', total: 45, userId: 1})
   const secondOrder = await Order.create({status: 'COMPLETED', email: 'abc@email.com', street: '124 Fullstack dr', state: 'NY', zipcode: '01140', total: 32.12, userId: 1})
   await Order.create({status: 'PENDING', email: 'abc@email.com', street: '124 Fullstack dr', state: 'NY', zipcode: '01140', total: 46.88, userId: 2})
-  await Order.create({status: 'COMPLETED', email: 'abc@email.com', street: '124 Fullstack dr', state: 'NY', zipcode: '01140', total: 18.99, userId: 2})
+  await Order.create({status: 'PROCESSING', email: 'abc@email.com', street: '124 Fullstack dr', state: 'NY', zipcode: '01140', total: 18.99, userId: 2})
 
   console.log('orders seeded')
 

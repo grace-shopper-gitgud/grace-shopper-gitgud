@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {Order, User} = require('../../db');
+const {Order, User, Product} = require('../../db');
 
 module.exports = router;
 
@@ -20,18 +20,30 @@ router.get('/:userId', async (req, res, next) => {
     const orders = await Order.findAll({
       where: {
         userId: req.user.id
-      }
+      },
+      include: [{
+        model: Product,
+        as: 'products'
+      }]
     })
     res.json(orders);
   } catch (err) {
-    (next(err))
+    next(err);
   }
 });
 
 router.post('/:userId', async (req, res, next) => {
+  let {order, cart} = req.body;
+  order = {
+    ...order,
+    total: Number(order.total),
+    status: 'COMPLETED'
+  };
   try {
-    const order = await Order.create(req.body)
-    res.json(order);
+    const resolvedOrder = await Order.create(order);
+    // const resolvedCart = await Promise.all(cart.map(product => resolvedOrder.addProduct(product)));
+    // console.log(resolvedCart);
+    res.json(resolvedOrder);
   } catch (err) {
     next(err);
   }
