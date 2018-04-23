@@ -62,10 +62,10 @@ const seed = async () => {
 
   console.log('seeding Orders');
 
-  await Order.create({status: 'PENDING', email: 'abc@email.com', street: '124 Fullstack dr', state: 'NY', zipcode: '01140', total: 45, userId: 1})
+  await Order.create({status: 'PROCESSING', email: 'abc@email.com', street: '124 Fullstack dr', state: 'NY', zipcode: '01140', total: 45, userId: 1})
   await Order.create({status: 'COMPLETED', email: 'abc@email.com', street: '124 Fullstack dr', state: 'NY', zipcode: '01140', total: 32.12, userId: 1})
   await Order.create({status: 'PENDING', email: 'abc@email.com', street: '124 Fullstack dr', state: 'NY', zipcode: '01140', total: 46.88, userId: 2})
-  await Order.create({status: 'COMPLETED', email: 'abc@email.com', street: '124 Fullstack dr', state: 'NY', zipcode: '01140', total: 18.99, userId: 2})
+  await Order.create({status: 'PROCESSING', email: 'abc@email.com', street: '124 Fullstack dr', state: 'NY', zipcode: '01140', total: 18.99, userId: 2})
 
   console.log('orders seeded')
 }

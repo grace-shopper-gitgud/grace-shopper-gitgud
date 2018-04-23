@@ -1,28 +1,55 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import { getOrders } from '../../store/orders';
 
-const Orders = (props) => {
-  return (
-    <div>
-      <div>
-        <h1>Orders Page for: {props.userEmail}</h1>
-      </div>
+class Orders extends React.Component {
+
+  componentDidMount () {
+    this.props.getOrders(this.props.user.id);
+  }
+  render () {
+    const completed = this.props.orders.filter(order => order.status === 'COMPLETED')
+    const processing = this.props.orders.filter(order => order.status === 'PROCESSING')
+
+    return (
       <div>
         <div>
-          <h1>Pending Orders</h1>
+          <h1>Orders for: {this.props.user.email}</h1>
         </div>
         <div>
-          <h1>Past Orders</h1>
+          <div>
+            <h2>Processing Orders</h2>
+            {processing.map(order => {
+              return (
+                <p key={order.id}>{order.status}</p>
+              )
+            })}
+          </div>
+          <div>
+            <h2>Completed Orders</h2>
+            {completed.map(order => {
+              return (
+                <p key={order.id}>{order.status}</p>
+              )
+            })}
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 const mapStateToProps = (state) => {
   return {
-    userEmail: state.user.email
+    user: state.user,
+    orders: state.orders || []
   };
 };
 
-export default connect(mapStateToProps, null)(Orders);
+const mapDispatchToProps = dispatch => {
+  return {
+    getOrders: (userId) => {dispatch(getOrders(userId))}
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Orders);

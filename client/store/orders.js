@@ -10,7 +10,7 @@ const gotOrders = orders => ({type: GOT_ORDERS, orders});
 const createdOrder = order => ({type: CREATED_ORDER, order})
 
 // THUNK CREATORS
-export const getOrders = (userId) => {
+export const getOrders = userId => {
   return (dispatch, _, {axios}) => {
     axios.get(`/api/orders/${userId}`)
       .then(res => res.data)
