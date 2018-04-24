@@ -34,6 +34,7 @@ router.get('/:userId', async (req, res, next) => {
 
 router.post('/:userId', async (req, res, next) => {
   let {order, cart} = req.body;
+  console.log(cart);
   order = {
     ...order,
     total: Number(order.total),
@@ -41,8 +42,8 @@ router.post('/:userId', async (req, res, next) => {
   };
   try {
     const resolvedOrder = await Order.create(order);
-    // const resolvedCart = await Promise.all(cart.map(product => resolvedOrder.addProduct(product)));
-    // console.log(resolvedCart);
+    //const resolvedCart = await Promise.all(resolvedOrder.addProducts(cart));
+    console.log(resolvedCart);
     res.json(resolvedOrder);
   } catch (err) {
     next(err);
