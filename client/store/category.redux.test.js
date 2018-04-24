@@ -25,4 +25,4 @@ describe('Action creators', () => {
       });
     });
   }); // end Action creators
-  
+
