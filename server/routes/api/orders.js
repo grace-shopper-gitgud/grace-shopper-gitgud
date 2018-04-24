@@ -1,3 +1,5 @@
+//import Axios from 'axios';
+
 const router = require('express').Router();
 const {Order, User, Product} = require('../../db');
 
@@ -33,8 +35,9 @@ router.get('/:userId', async (req, res, next) => {
 });
 
 router.post('/:userId', async (req, res, next) => {
-  let {order, cart} = req.body;
+  let {order, cart } = req.body;
   console.log(cart);
+  let userId = req.user.id
   order = {
     ...order,
     total: Number(order.total),
@@ -42,10 +45,19 @@ router.post('/:userId', async (req, res, next) => {
   };
   try {
     const resolvedOrder = await Order.create(order);
-    //const resolvedCart = await Promise.all(resolvedOrder.addProducts(cart));
-    console.log(resolvedCart);
+    const cartIds = cart.map(product => product.id)
+    console.log(cartIds)
+    const itemsToAdd = await Product.findAll({
+      where: {
+        id: cartIds
+      }
+    })
+    const userino = await User.findById(userId)
+    const resolvedCart = await resolvedOrder.addProducts(itemsToAdd);
+    const addedUser = await resolvedOrder.setUser(userino)
+    console.log('finalcart', resolvedCart);
     res.json(resolvedOrder);
   } catch (err) {
     next(err);
   }
-})
+});
