@@ -36,7 +36,6 @@ router.get('/:userId', async (req, res, next) => {
 
 router.post('/:userId', async (req, res, next) => {
   let {order, cart } = req.body;
-  console.log(cart);
   let userId = req.user.id
   order = {
     ...order,
@@ -46,7 +45,6 @@ router.post('/:userId', async (req, res, next) => {
   try {
     const resolvedOrder = await Order.create(order);
     const cartIds = cart.map(product => product.id)
-    console.log(cartIds)
     const itemsToAdd = await Product.findAll({
       where: {
         id: cartIds
@@ -54,8 +52,8 @@ router.post('/:userId', async (req, res, next) => {
     })
     const userino = await User.findById(userId)
     const resolvedCart = await resolvedOrder.addProducts(itemsToAdd);
-    const addedUser = await resolvedOrder.setUser(userino)
-    console.log('finalcart', resolvedCart);
+    const addedUser = await resolvedOrder.setUser(userino);
+    await resolvedOrder.reload({include: [{all: true}]});
     res.json(resolvedOrder);
   } catch (err) {
     next(err);

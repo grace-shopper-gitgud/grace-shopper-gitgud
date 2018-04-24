@@ -2,6 +2,7 @@
 const GOT_CART = 'GOT_CART';
 const ADD_TO_CART = 'ADD_TO_CART';
 const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
+const EMPTIED_CART = 'EMPTIED_CART';
 
 // INITIAL STATE
 const cart = [];
@@ -16,9 +17,15 @@ const addToCart = product => ({
     type: ADD_TO_CART,
     product
 });
+
 const removeFromCart = product => ({
     type: REMOVE_FROM_CART,
     product
+});
+
+const emptiedCart = cart => ({
+    type: EMPTIED_CART,
+    cart
 });
 
 // THUNK CREATORS
@@ -47,6 +54,15 @@ export const removeProduct = (product) => {
     }
 }
 
+export const emptyCart = () => {
+    return (dispatch, _, {axios}) => {
+        const cart = [];
+        axios.put('/api/cart', cart)
+            .catch(console.error.bind(console));
+        dispatch(emptiedCart(cart));
+    }
+}
+
 //REDUCER
 export default (state = cart, action) => {
     const {product} = action;
@@ -71,6 +87,8 @@ export default (state = cart, action) => {
                 return [...state.slice(0, i), ...state.slice(i + 1)];
             }
         }
+        case EMPTIED_CART:
+            return action.cart;
         default:
             return state;
     }

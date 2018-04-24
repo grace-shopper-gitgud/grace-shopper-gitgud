@@ -1,3 +1,5 @@
+import {emptyCart} from './cart';
+
 // ACTION TYPE
 const GOT_ORDERS = 'GOT_ORDERS';
 const CREATED_ORDER = 'CREATED_ORDER'
@@ -12,7 +14,7 @@ const createdOrder = order => ({type: CREATED_ORDER, order})
 // THUNK CREATORS
 export const getOrders = userId => {
   return (dispatch, _, {axios}) => {
-    axios.get(`/api/orders/${userId}`)
+    return axios.get(`/api/orders/${userId}`)
       .then(res => res.data)
       .then(orders => dispatch(gotOrders(orders)))
       .catch(console.error.bind(console));
@@ -20,10 +22,15 @@ export const getOrders = userId => {
 }
 
 export const createOrder = (order, userId) => {
-  return (dispatch, _, {axios}) => {
-    axios.post(`/api/orders/${userId.toString()}`, order)
+  return async (dispatch, _, {axios, history}) => {
+    return axios.post(`/api/orders/${userId.toString()}`, order)
       .then(res => res.data)
-      .then(order => dispatch(createdOrder(order)))
+      .then(async order => {
+          dispatch(createdOrder(order));
+          await dispatch(emptyCart([]));
+          history.push('/products');
+        }
+      )
       .catch(console.error.bind(console));
   }
 }

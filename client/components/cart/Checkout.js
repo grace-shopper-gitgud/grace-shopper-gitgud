@@ -78,7 +78,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  createOrder: (order, userId) => dispatch(createOrder(order, userId))
+  createOrder: (order, userId) => dispatch(createOrder(order, userId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Checkout);
