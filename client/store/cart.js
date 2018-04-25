@@ -7,7 +7,7 @@ const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 const cart = [];
 
 // ACTION CREATORS
-const gotCart = cart => ({
+export const gotCart = cart => ({
     type: GOT_CART,
     cart
 });
