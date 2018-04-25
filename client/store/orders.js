@@ -13,12 +13,12 @@ const createdOrder = order => ({type: CREATED_ORDER, order})
 
 // THUNK CREATORS
 export const getOrders = userId => {
-
   return (dispatch, _, {axios}) => {
     return axios.get(`/api/orders/${userId}`)
       .then(res => res.data)
       .then(orders => dispatch(gotOrders(orders)))
       .catch(console.error.bind(console));
+  }
 }
 
 export const createOrder = (order, userId) => {
