@@ -3,11 +3,7 @@
 const {expect} = require('chai')
 const {db, Product} = require('./index')
 
-<<<<<<< HEAD
-describe('Product model testerinos + 1', () => {
-=======
 describe('Product model testerinos', () => {
->>>>>>> master
   beforeEach(() => {
     return db.sync({force: true})
   })
